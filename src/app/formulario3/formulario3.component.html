@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <form action="">
+      <div class="mb-2">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" [formControl]="name">
+      </div>
+
+      <div class="mb-2">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" [formControl]="email">
+      </div>
+
+      <button class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</div>
+
+{{name.value}} <br> {{email.value}}
