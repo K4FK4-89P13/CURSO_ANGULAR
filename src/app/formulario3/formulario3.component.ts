@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { JsonPipe } from '@angular/common';
 
@@ -12,6 +12,8 @@ import { JsonPipe } from '@angular/common';
 })
 export class Formulario3Component {
 
+  constructor (private fb:FormBuilder){}
+
   get name(){
     return this.formUser.get('name') as FormControl;
   }
@@ -20,10 +22,14 @@ export class Formulario3Component {
     return this.formUser.get('email') as FormControl;
   }
 
-  formUser = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email])
-  })
+  // formUser = new FormGroup({
+  //   name: new FormControl('', Validators.required),
+  //   email: new FormControl('', [Validators.required, Validators.email])
+  // })
 
+  formUser = this.fb.group({
+    'name': ['', Validators.required],
+    'email': ['', [Validators.required, Validators.email]]
+  })
 
 }
